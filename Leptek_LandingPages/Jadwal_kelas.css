@@ -1,0 +1,18 @@
+/* =========================================
+   JADWAL KELAS (single angkatan)
+========================================= */
+
+/* Subtitle directly under the page title */
+.jadwal-card .jadwal-subtitle {
+  color: #555;
+  font-size: 16px;
+  margin: -20px 0 30px; /* pulls the subtitle closer to the big title */
+}
+
+/* Warning shown when no angkatan was selected/found */
+.jadwal-note {
+  color: #e91e63;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}

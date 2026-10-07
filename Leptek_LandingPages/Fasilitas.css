@@ -1,0 +1,18 @@
+/* =========================================
+   FASILITAS & PERALATAN - standalone page
+   LP.css provides the section, card, spec-table
+   and two-column lab layout styles; this file
+   only adds the page frame so the fixed navbar
+   never covers the heading.
+========================================= */
+
+.fasilitas-page {
+  min-height: 100vh;
+  padding-top: 120px; /* clears the fixed 60px navbar */
+}
+
+@media (max-width: 900px) {
+  .fasilitas-page {
+    padding-top: 100px;
+  }
+}

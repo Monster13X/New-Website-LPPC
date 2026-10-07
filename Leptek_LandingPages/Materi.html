@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Materi - LEPTEK</title>
+
+    <!-- Shared navbar & footer styles from the landing page -->
+    <link rel="stylesheet" href="LP.css?v=23" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="Materi.css" />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR (same as LP.html) ================= -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="logo">LEPTEK</div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <!-- <li><a href="#">TENTANG KAMI</a></li> -->
+            <!-- <li><a href="#">PROGRAM</a></li> -->
+            <li><a href="Kontak_Person.html">KONTAK</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= MATERI VIEWER ================= -->
+    <section class="materi-viewer">
+      <div class="materi-card">
+        <h1 id="materi-title">Materi</h1>
+        <div class="materi-gallery">
+          <button id="gallery-prev" class="gallery-arrow" type="button" aria-label="Gambar sebelumnya">&#10094;</button>
+          <img
+            id="materi-image"
+            class="materi-image"
+            src="../Images/LepTek Logo.png"
+            alt="Materi"
+          />
+          <button id="gallery-next" class="gallery-arrow" type="button" aria-label="Gambar berikutnya">&#10095;</button>
+        </div>
+        <!-- Thumbnail strip: click a preview to jump straight to that picture -->
+        <div id="gallery-thumbs" class="gallery-thumbs" hidden></div>
+        <p id="gallery-counter" class="gallery-counter"></p>
+        <a href="../index.php" class="btn-red">Kembali</a>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER (same as LP.html) ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">LEPTEK</div>
+
+        <p>© 2026 LEPTEK</p>
+
+        <div class="socials">
+          <a href="#">Instagram</a>
+          <!--a href="#">Twitter</a>
+          <a href="#">Facebook</a-->
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= NAVBAR SCROLL BEHAVIOR (same as LP.html) ================= -->
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const NAVBAR_HEIGHT = 60; // hide only after scrolling past the bar itself
+      let lastScrollY = window.scrollY;
+      let hoveringNavbar = false;
+      let clickCooldown = 0; // timestamp until which auto-hide is suppressed
+      let firstScrollAfterLoad = true; // the browser may restore a saved scroll position
+
+      function showNavbar() {
+        navbar.classList.remove("hidden");
+      }
+
+      // Landing on the page → the navbar starts visible
+      showNavbar();
+
+      // Returning to the page via back/forward (restored from cache) → show it again
+      window.addEventListener("pageshow", () => {
+        showNavbar();
+        lastScrollY = window.scrollY;
+      });
+
+      // Scrolling down → hide the bar. Scrolling up (or back near the top) → show it.
+      window.addEventListener("scroll", () => {
+        const currentY = window.scrollY;
+
+        // First scroll event after load: only sync the position. The browser may
+        // have jumped to a restored scroll spot — that must not hide the bar.
+        if (firstScrollAfterLoad) {
+          firstScrollAfterLoad = false;
+          lastScrollY = currentY;
+          return;
+        }
+
+        if (currentY < lastScrollY || currentY <= NAVBAR_HEIGHT) {
+          showNavbar();
+        } else if (
+          currentY > lastScrollY &&
+          !hoveringNavbar &&
+          Date.now() > clickCooldown
+        ) {
+          navbar.classList.add("hidden"); // actively scrolling down → hide the bar
+        }
+
+        lastScrollY = currentY;
+      });
+
+      // Keep the navbar visible while the cursor is over it,
+      // so users can still click the links
+      navbar.addEventListener("mouseenter", () => {
+        hoveringNavbar = true;
+        showNavbar();
+      });
+      navbar.addEventListener("mouseleave", () => {
+        hoveringNavbar = false;
+      });
+
+      // Clicking a link (jumping to a section or another page)
+      // → show the navbar and keep it visible during the jump
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          showNavbar();
+          clickCooldown = Date.now() + 1000;
+        });
+      });
+
+      // Clicking anywhere on the page (outside the navbar and interactive
+      // controls) toggles the bar manually: hidden → shown, shown → hidden.
+      document.addEventListener("click", (event) => {
+        // The navbar never toggles itself away, and links/buttons/inputs
+        // already handle the bar (they show it for the jump/navigation).
+        if (
+          navbar.contains(event.target) ||
+          event.target.closest("a, button, select, input, textarea, label")
+        ) {
+          return;
+        }
+
+        navbar.classList.toggle("hidden");
+        clickCooldown = Date.now() + 600; // don't let the next scroll tick undo the toggle
+      });
+
+      // ===== MOBILE HAMBURGER MENU =====
+      const navToggle = document.querySelector(".nav-toggle");
+      if (navToggle) {
+        navToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = navbar.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        // Close the menu when a nav link is tapped
+        document.querySelectorAll(".navbar nav a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navbar.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+
+        // Close the menu when tapping outside the navbar
+        document.addEventListener("click", (e) => {
+          if (
+            navbar.classList.contains("nav-open") &&
+            !navbar.contains(e.target)
+          ) {
+            navbar.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+    </script>
+
+    <!-- ================= MATERI GALLERY LOADER ================= -->
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const materiImage = document.getElementById("materi-image");
+      const materiTitle = document.getElementById("materi-title");
+      const galleryPrev = document.getElementById("gallery-prev");
+      const galleryNext = document.getElementById("gallery-next");
+      const galleryCounter = document.getElementById("gallery-counter");
+      const galleryThumbs = document.getElementById("gallery-thumbs");
+
+      // Every displayable file that lives in ../Images. When the page is
+      // opened without an "img" query parameter, SAMPLE_SIZE of these are
+      // picked at random to build the sample gallery. .HEIC photos are left
+      // out because browsers cannot render that format.
+      const SAMPLE_POOL = [
+        "1.png",
+        "2.jpeg",
+        "20260426_152716.jpg.jpeg",
+        "20260426_152717.jpg.jpeg",
+        "20260426_152736.jpg.jpeg",
+        "20260426_152738.jpg.jpeg",
+        "20260426_152739.jpg.jpeg",
+        "3.jpeg",
+        "4.jpg",
+        "bg.jpeg",
+        "b_Apply_the_outfit_fro.png",
+        "Citra1.jpeg",
+        "Citra2.jpeg",
+        "Citra3.jpeg",
+        "Contoh Seam.png",
+        "Gunadarma Logo 2.png",
+        "Gunadarma Logo.png",
+        "LepTek Logo.png",
+        "Logo LPPC.png",
+        "LPPC Logo Mid BG.png",
+        "LPPC Logo Mid.png",
+        "Multimedia1.jpeg",
+        "Multimedia2.jpeg",
+        "Multimedia3.jpeg",
+        "Seam Terlihat.png",
+        "Seam Tidak Terlihat.png",
+      ];
+      const SAMPLE_SIZE = 4;
+      let usingFallback = false;
+
+      // The "img" query param may hold ONE file name or SEVERAL separated by
+      // commas — e.g. img=Ruang%20D317D%201.jpg,Ruang%20D317D%202.jpg
+      // Only plain file names are kept — path parts are ignored for safety.
+      const requestedTitle = params.get("judul") || "";
+      let gallery = (params.get("img") || "")
+        .split(",")
+        .map((name) => name.trim().split(/[\\/]/).pop())
+        .filter(Boolean);
+      let current = 0;
+
+      function imageUrl(file) {
+        return "../Images/" + encodeURIComponent(file);
+      }
+
+      // Randomly choose `count` different files from the sample pool
+      function pickSampleImages(count) {
+        const pool = SAMPLE_POOL.slice();
+        for (let i = pool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [pool[i], pool[j]] = [pool[j], pool[i]];
+        }
+        return pool.slice(0, Math.min(count, pool.length));
+      }
+
+      function updateArrows() {
+        const show = gallery.length > 1;
+        galleryPrev.hidden = !show;
+        galleryNext.hidden = !show;
+      }
+
+      // One clickable preview per picture; the active one is highlighted
+      function buildThumbs() {
+        galleryThumbs.innerHTML = "";
+        gallery.forEach((file, index) => {
+          const thumb = document.createElement("button");
+          thumb.type = "button";
+          thumb.className = "gallery-thumb";
+          thumb.setAttribute("aria-label", "Tampilkan gambar " + (index + 1));
+
+          const preview = document.createElement("img");
+          preview.src = imageUrl(file);
+          preview.alt = "";
+          preview.loading = "lazy";
+          preview.draggable = false;
+          thumb.appendChild(preview);
+
+          thumb.addEventListener("click", () => {
+            if (index === current) return;
+            current = index;
+            showCurrent();
+          });
+          galleryThumbs.appendChild(thumb);
+        });
+        galleryThumbs.hidden = gallery.length < 2;
+        updateActiveThumb();
+      }
+
+      function updateActiveThumb() {
+        const thumbs = galleryThumbs.querySelectorAll(".gallery-thumb");
+        thumbs.forEach((thumb, index) => {
+          thumb.classList.toggle("active", index === current);
+        });
+        // Keep the active preview in sight, scrolling only the strip itself
+        const active = galleryThumbs.querySelector(".gallery-thumb.active");
+        if (active) {
+          const strip = galleryThumbs.getBoundingClientRect();
+          const box = active.getBoundingClientRect();
+          const target =
+            galleryThumbs.scrollLeft +
+            (box.left + box.width / 2 - (strip.left + strip.width / 2));
+          galleryThumbs.scrollTo({
+            left: Math.max(target, 0),
+            behavior: "smooth",
+          });
+        }
+      }
+
+      function showCurrent() {
+        materiImage.src = imageUrl(gallery[current]);
+        materiImage.alt =
+          (requestedTitle || "Materi") + " — gambar " + (current + 1);
+        galleryCounter.textContent =
+          gallery.length > 1 ? current + 1 + " / " + gallery.length : "";
+        updateArrows();
+        updateActiveThumb();
+      }
+
+      function showFallback(title) {
+        usingFallback = true;
+        gallery = [];
+        current = 0;
+        updateArrows();
+        galleryThumbs.hidden = true;
+        galleryThumbs.innerHTML = "";
+        galleryCounter.textContent = "";
+        materiImage.src = "../Images/LepTek Logo.png";
+        materiImage.alt = "Materi tidak ditemukan";
+        materiTitle.textContent = title;
+      }
+
+      // An image that cannot be loaded is dropped and the next one is shown.
+      // If every image fails → fall back to the logo.
+      materiImage.addEventListener("error", () => {
+        if (usingFallback) {
+          return; // the fallback logo itself failed → nothing more to do
+        }
+        gallery.splice(current, 1);
+        if (gallery.length === 0) {
+          showFallback("Materi tidak ditemukan");
+        } else {
+          if (current >= gallery.length) current = 0;
+          buildThumbs();
+          showCurrent();
+        }
+      });
+
+      // Scroll through the gallery — wraps around at both ends
+      galleryPrev.addEventListener("click", () => {
+        if (gallery.length < 2) return;
+        current = (current - 1 + gallery.length) % gallery.length;
+        showCurrent();
+      });
+      galleryNext.addEventListener("click", () => {
+        if (gallery.length < 2) return;
+        current = (current + 1) % gallery.length;
+        showCurrent();
+      });
+
+      // Keyboard support: ← / → move through the pictures
+      document.addEventListener("keydown", (event) => {
+        if (gallery.length < 2) return;
+        if (event.key === "ArrowLeft") galleryPrev.click();
+        if (event.key === "ArrowRight") galleryNext.click();
+      });
+
+      if (gallery.length > 0) {
+        if (requestedTitle) {
+          materiTitle.textContent = requestedTitle;
+        }
+        buildThumbs();
+        showCurrent();
+      } else {
+        // Nothing was chosen → demo the multi-image viewer with a sample
+        // gallery of random pictures taken from the Images folder.
+        gallery = pickSampleImages(SAMPLE_SIZE);
+        current = 0;
+        if (!requestedTitle) {
+          materiTitle.textContent = "Contoh Materi";
+        }
+        buildThumbs();
+        showCurrent();
+      }
+    </script>
+  </body>
+</html>

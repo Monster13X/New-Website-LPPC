@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Fasilitas &amp; Peralatan Citra - LEPTEK</title>
+
+    <!-- Shared navbar, footer and equipment-card styles from the landing page -->
+    <link rel="stylesheet" href="LP.css?v=23" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="Fasilitas.css?v=2" />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR (same as Materi.html) ================= -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="logo">LEPTEK</div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="../index.php#home">HOME</a></li>
+            <!-- <li><a href="../index.php#tentang-kami">TENTANG KAMI</a></li> -->
+            <!-- <li><a href="../index.php#program">PROGRAM</a></li> -->
+            <li><a href="Kontak_Person.html">KONTAK</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= FASILITAS & PERALATAN =================
+         Moved out of index.php: the full equipment cards (A-F) live
+         here, while index.php only keeps the section heading. -->
+    <section class="profil-lab fasilitas-lab fasilitas-page">
+      <div class="profil-container">
+        <div class="section-title">
+          <h2>Fasilitas &amp; Peralatan Citra</h2>
+          <span></span>
+        </div>
+
+        <div class="profil-cards fasilitas-cards single-card">
+<div class="profil-card">
+            <h3 class="profil-name">a. Komputer Kursus</h3>
+
+            <div class="fas-device-block">
+              <p class="fas-device">Komputer Praktikan dan Instruktur</p>
+
+              <div class="fas-table">
+                <div class="fas-tr">
+                  <span class="fas-key">Jumlah</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">1 Unit Instruktur / 30 Unit Peserta</span>
+                </div>
+              </div>
+
+              <div class="fas-table">
+                <div class="fas-tr">
+                  <span class="fas-key">Spesifikasi Motherboard</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">MSI A88XM Gaming socket FM2+</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Processor</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">AMD Kaveri A10 7700k</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Memory</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">Memory 8GB DDR PC 1333</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">VGA Card</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">Power Color R7 240 OC 2GB 128Bit DDR3</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Sound Card</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">-- (onboard)</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Harddisk</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">SSD SATA3 265GB [21 PC] atau Harddisk 1TB 7200 RPM 3.5" [10 PC]</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Casing</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">Dazumba Case DE 500watt PSU Cassis</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Keyboard + Mouse</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">Logitech Keyboard+Optical Mouse</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Monitor</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">Samsung LED 21.5" Wide Monitor</span>
+                </div>
+                <div class="fas-tr">
+                  <span class="fas-key">Speaker</span>
+                  <span class="fas-colon">:</span>
+                  <span class="fas-val">Speaker Logitech</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fasilitas-cta">
+          <a href="../index.php" class="btn-red">Kembali</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER (same as Materi.html) ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">LEPTEK</div>
+
+        <p>© 2026 LEPTEK</p>
+
+        <div class="socials">
+          <a href="#">Instagram</a>
+          <!--a href="#">Twitter</a>
+          <a href="#">Facebook</a-->
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= NAVBAR SCROLL BEHAVIOR (same as Materi.html) ================= -->
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const NAVBAR_HEIGHT = 60; // hide only after scrolling past the bar itself
+      let lastScrollY = window.scrollY;
+      let hoveringNavbar = false;
+      let clickCooldown = 0; // timestamp until which auto-hide is suppressed
+      let firstScrollAfterLoad = true; // the browser may restore a saved scroll position
+
+      function showNavbar() {
+        navbar.classList.remove("hidden");
+      }
+
+      // Landing on the page → the navbar starts visible
+      showNavbar();
+
+      // Returning to the page via back/forward (restored from cache) → show it again
+      window.addEventListener("pageshow", () => {
+        showNavbar();
+        lastScrollY = window.scrollY;
+      });
+
+      // Scrolling down → hide the bar. Scrolling up (or back near the top) → show it.
+      window.addEventListener("scroll", () => {
+        const currentY = window.scrollY;
+
+        // First scroll event after load: only sync the position. The browser may
+        // have jumped to a restored scroll spot — that must not hide the bar.
+        if (firstScrollAfterLoad) {
+          firstScrollAfterLoad = false;
+          lastScrollY = currentY;
+          return;
+        }
+
+        if (currentY < lastScrollY || currentY <= NAVBAR_HEIGHT) {
+          showNavbar();
+        } else if (
+          currentY > lastScrollY &&
+          !hoveringNavbar &&
+          Date.now() > clickCooldown
+        ) {
+          navbar.classList.add("hidden"); // actively scrolling down → hide the bar
+        }
+
+        lastScrollY = currentY;
+      });
+
+      // Keep the navbar visible while the cursor is over it,
+      // so users can still click the links
+      navbar.addEventListener("mouseenter", () => {
+        hoveringNavbar = true;
+        showNavbar();
+      });
+      navbar.addEventListener("mouseleave", () => {
+        hoveringNavbar = false;
+      });
+
+      // Clicking a link (jumping to a section or another page)
+      // → show the navbar and keep it visible during the jump
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          showNavbar();
+          clickCooldown = Date.now() + 1000;
+        });
+      });
+
+      // Clicking anywhere on the page (outside the navbar and interactive
+      // controls) toggles the bar manually: hidden → shown, shown → hidden.
+      document.addEventListener("click", (event) => {
+        // The navbar never toggles itself away, and links/buttons/inputs
+        // already handle the bar (they show it for the jump/navigation).
+        if (
+          navbar.contains(event.target) ||
+          event.target.closest("a, button, select, input, textarea, label")
+        ) {
+          return;
+        }
+
+        navbar.classList.toggle("hidden");
+        clickCooldown = Date.now() + 600; // don't let the next scroll tick undo the toggle
+      });
+
+      // ===== MOBILE HAMBURGER MENU =====
+      const navToggle = document.querySelector(".nav-toggle");
+      if (navToggle) {
+        navToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = navbar.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        // Close the menu when a nav link is tapped
+        document.querySelectorAll(".navbar nav a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navbar.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+
+        // Close the menu when tapping outside the navbar
+        document.addEventListener("click", (e) => {
+          if (
+            navbar.classList.contains("nav-open") &&
+            !navbar.contains(e.target)
+          ) {
+            navbar.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+/* =========================================
+   KEGIATAN KURSUS & WORKSHOP - standalone pages
+   LP.css provides the section, kegiatan-card
+   and praktik-table styles; this file only adds
+   the page frame so the fixed navbar never
+   covers the heading.
+========================================= */
+
+.kegiatan-page {
+  min-height: 100vh;
+  padding-top: 120px; /* clears the fixed 60px navbar */
+}
+
+@media (max-width: 900px) {
+  .kegiatan-page {
+    padding-top: 100px;
+  }
+}

@@ -1,0 +1,46 @@
+/* =========================================
+   KONTAK PERSON - standalone page
+   LP.css provides the navbar, footer, section
+   title, profil-card and profil-list styles;
+   this file only adds the page frame so the
+   fixed navbar never covers the heading, plus
+   the small contact-card extras.
+========================================= */
+
+.kontak-page {
+  min-height: 100vh;
+  padding-top: 120px; /* clears the fixed 60px navbar */
+}
+
+/* Keep the WhatsApp button aligned with the bottom of
+   both equal-height contact cards */
+.kontak-page .profil-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.kontak-page .profil-list {
+  flex: 1 1 auto;
+}
+
+.kontak-action {
+  margin-top: 24px;
+}
+
+/* Clickable contact values (email & phone) use the
+   site's pink accent, like .btn-red */
+.kontak-page .profil-value a {
+  color: #e91e63;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.kontak-page .profil-value a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .kontak-page {
+    padding-top: 100px;
+  }
+}

@@ -1,0 +1,1489 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background: rgba(16, 15, 15, 0.616);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  border-bottom: 1px solid linear-gradient(135deg, #667eea, #764ba2);
+
+  /* Visible by default — shown as soon as the page loads */
+  transform: translateY(0);
+  transition: transform 0.35s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Hidden state — added via JS while the user scrolls down */
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-container {
+  width: 1200px;
+  max-width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+
+.logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+/* Navigation */
+
+.navbar nav ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar nav a {
+  color: #fffdfd;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  color: #fff;
+}
+
+/* Hamburger menu button — hidden on desktop, shown on phones */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* =========================================
+   HERO 2
+========================================= */
+
+.hero2 {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(65deg, #3560e1, #ff5252);
+  color: #fff;
+  position: relative;
+}
+
+.hero-image img {
+  width: 500px;
+  max-width: 100%; /* keep the logo inside phone viewports */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hero content */
+
+.hero-content2 {
+  position: relative;
+  z-index: 2;
+  width: 900px;
+  max-width: 90%;
+}
+
+/* Small title */
+
+.hero-small-title2 {
+  font-size: 25px;
+  font-weight: 200px;
+  letter-spacing: 7px;
+  color: #fff;
+  margin-top: 10px;
+}
+/* Main title */
+
+.hero2 h1 {
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: 7px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+/* =========================================
+   INTRO VIDEO SECTION
+========================================= */
+.image-thumbnail {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically if needed */
+}
+
+.image-thumbnail img {
+  width: 300px; /* or any size you want */
+  height: 300px; /* same as width → square */
+  object-fit: contain; /* crop to fill square */
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  background: #bb8f8f;
+}
+
+.intro-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.intro-text h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 6px;
+}
+
+.intro-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .intro-video-box {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   FEATURES
+========================================= */
+.features {
+  padding: 100px 10%;
+  background: linear-gradient(135deg, #e89165, #4273ed);
+  text-align: center;
+}
+
+/* Section heading — centered above the Multimedia & Citra cards */
+.features-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 50px;
+}
+
+/* Keeps the two course cards in a row under the heading */
+.features-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.feature {
+  text-align: center;
+  max-width: 300px;
+}
+
+.feature h2 {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: #111;
+}
+
+.feature h3 {
+  font-size: 30px;
+  color: #c70445;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 16px;
+  color: #f5eeee;
+}
+
+.section-title {
+  text-align: center; /* only centers the heading */
+  margin-top: 30px; /* space between heading and grid */
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 7px;
+  color: #111;
+  margin-top: 10px;
+}
+
+.section-title span {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #e91e63;
+  margin: 10px auto 0;
+}
+
+/* =========================================
+   PROFIL LABORATORIUM
+========================================= */
+
+.profil-lab {
+  background: #fff;
+  padding: 80px 0;
+}
+
+.profil-container {
+  width: 1400px; /* wider cards so long lab names stay on one line */
+  max-width: 90%;
+  margin: auto;
+}
+
+.profil-cards {
+  margin-top: 30px;
+  display: grid;
+  /* minmax(0, 1fr) forces both columns to be exactly equal width,
+     regardless of the text length inside each card */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: stretch; /* also keeps both cards the same height */
+}
+
+.profil-card {
+  min-width: 0; /* lets the rows shrink to fit inside the equal column */
+  background: #dfddd1;
+  border-radius: 14px;
+  padding: 40px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle lift on hover */
+.profil-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+/* Card heading — centered, with a dashed divider under it */
+.profil-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #b8b5a7;
+}
+
+.profil-list {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+
+/* Each row: fixed Label column, colon column, then the value */
+.profil-list li {
+  display: grid;
+  grid-template-columns: 180px 16px 1fr;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #b8b5a7;
+}
+
+.profil-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.profil-label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.profil-colon {
+  font-weight: 600;
+  color: #333;
+}
+
+.profil-value {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Struktur Organisasi — full-width block row (breaks out of the 3-col grid) */
+.profil-list li.struktur-row {
+  display: block;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.struktur-heading {
+  display: block;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.struktur-line {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.struktur-role {
+  font-weight: 700;
+  color: #333;
+}
+
+.struktur-colon {
+  font-weight: 700;
+  color: #333;
+  margin: 0 6px 0 2px;
+}
+
+.struktur-name {
+  display: block;
+  font-weight: 400;
+  color: #555;
+  margin-top: 4px;
+}
+
+.struktur-subheading {
+  display: block;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.struktur-staff {
+  display: block;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.struktur-staff:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   KEGIATAN KURSUS & WORKSHOP
+   Full-width block under the two Profil cards.
+   One group per laboratory; each group stacks
+   activity cards (badge + name + description +
+   info rows + optional Langkah Praktik table).
+========================================= */
+
+.kegiatan-section {
+  margin-top: 70px;
+}
+
+/* Keep the reused .section-title tight inside this block */
+.kegiatan-section .section-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.kegiatan-group {
+  margin-top: 40px;
+}
+
+/* Fixed navbar must not cover anchored headings */
+#kegiatan,
+#kegiatan-citra,
+#kegiatan-multimedia {
+  scroll-margin-top: 90px;
+}
+
+/* Lab name heading with a red accent underline */
+.kegiatan-group-title {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  letter-spacing: 0.5px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #e91e63;
+  margin-bottom: 25px;
+}
+
+/* Activity card — same beige as .profil-card */
+.kegiatan-card {
+  background: #dfddd1;
+  border-radius: 14px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.kegiatan-card + .kegiatan-card {
+  margin-top: 25px;
+}
+
+/* Type badge (Kursus / Workshop) */
+.kegiatan-type {
+  display: inline-block;
+  background: #e91e63;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+.kegiatan-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin: 14px 0 10px;
+}
+
+.kegiatan-desc {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* Info rows — label, colon, value on one line */
+.kegiatan-info {
+  list-style: none;
+}
+
+.kegiatan-info li {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  align-items: baseline;
+  column-gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #b8b5a7;
+}
+
+.kegiatan-info li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.kegiatan-key {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.kegiatan-colon {
+  font-weight: 600;
+  color: #333;
+}
+
+.kegiatan-value {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #555;
+}
+
+/* Langkah Praktik table */
+.praktik-scroll {
+  margin-top: 18px;
+}
+
+.praktik-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Explicit borders/alignment: LP.css carries unscoped global
+   td/th rules (2px solid #999 grid + centered text) written
+   for the Jadwal table — reset them here so this table matches
+   the site's dashed-divider style (.profil-list / .fas-tr). */
+.praktik-table th {
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  background: #d3d0c2;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 2px solid #b8b5a7;
+}
+
+.praktik-table td {
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #555;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 1px dashed #b8b5a7;
+  vertical-align: top;
+}
+
+.praktik-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* First column bold like the other label styles — also reset the
+   unscoped "tbody td:first-child" gray paint from the Jadwal rules */
+.praktik-table td:first-child {
+  font-weight: 600;
+  color: #333;
+  background: transparent;
+}
+
+.praktik-table ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.praktik-table li {
+  margin: 2px 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .kegiatan-card {
+    padding: 24px 18px;
+  }
+
+  .kegiatan-info li {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+  }
+
+  .kegiatan-colon {
+    display: none;
+  }
+
+  .praktik-scroll {
+    overflow-x: auto;
+  }
+
+  .praktik-table {
+    min-width: 620px;
+  }
+}
+
+/* =========================================
+   FASILITAS & PERALATAN
+   Equipment cards that replaced the old "Visi &
+   Misi Laboratorium" block. Each of the six
+   cards (A-F) holds one or more device blocks;
+   every block has a "Jumlah" row followed by a
+   "Spesifikasi" table. Reuses ".profil-cards"
+   / ".profil-card" so the 2-column desktop grid
+   and the <=900px collapse come for free.
+========================================= */
+
+/* Divider between device blocks on multi-device
+   cards (VR Headset, Kamera) */
+.fas-device-block + .fas-device-block {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed #b8b5a7;
+}
+
+/* Card heading sits closer to the device name
+   than it did to the old Visi/Misi list */
+.fasilitas-lab .profil-name {
+  margin-bottom: 14px;
+}
+
+.fas-device {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.fas-table {
+  display: grid;
+}
+
+/* Divider between the Jumlah block and the spec
+   rows below (the old "Spesifikasi" sub-heading is
+   now the prefix of the first spec row) */
+.fas-table + .fas-table {
+  border-top: 1px dashed #b8b5a7;
+}
+
+/* Each row: label, colon and value sit on one
+   horizontal line - the colon hugs the label (no
+   fixed label column), so a short "Jumlah" reads
+   the same as a long "Keyboard + Mouse" */
+.fas-tr {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  align-items: baseline;
+  column-gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #b8b5a7;
+}
+
+.fas-tr:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.fas-key {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.fas-colon {
+  font-weight: 600;
+  color: #333;
+}
+
+.fas-val {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #555;
+}
+
+/* Rows stay one horizontal line at every screen
+   size: label, colon and value flow with the colon
+   directly after the label */
+
+/* Responsive */
+@media (max-width: 900px) {
+  .profil-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .profil-card {
+    padding: 30px 20px;
+  }
+
+  .profil-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .profil-colon {
+    display: none;
+  }
+}
+
+/* Centered call-to-action under the Fasilitas heading (index.php and Fasilitas.html) */
+.fasilitas-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Safety net: if the CTA ever ends up nested inside one of the card
+   grids (e.g. an older cached copy of the page markup), force it onto
+   its own full-width row so the button can never sit beside a card. */
+.profil-cards .fasilitas-cta,
+.fasilitas-columns .fasilitas-cta {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+/* =========================================
+   Two titled lab columns inside the Fasilitas section:
+   "Fasilitas & Peralatan Multimedia" left, "Fasilitas & Peralatan Citra" right.
+========================================= */
+.fasilitas-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+/* Column heading above each card stack */
+.fas-group-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+/* Cards stack vertically inside their own lab column */
+.fasilitas-col .profil-cards {
+  grid-template-columns: 1fr;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .fasilitas-columns {
+    grid-template-columns: 1fr;
+  }
+}
+/* One card fills the column and stays centered (single-card lab pages) */
+.profil-cards.single-card {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* =========================================
+   SILABUS & PROGRAM
+========================================= */
+.silabus {
+  position: relative;
+  background: #fff;
+  padding: 80px 0;
+  overflow: hidden; /* prevent image overflow */
+}
+
+.silabus-bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* stretch across section */
+  height: 100%; /* cover full section height */
+  object-fit: cover; /* keep proportions */
+  object-position: center; /* center the photo source */
+  opacity: 0.55; /* minimalist transparency */
+  z-index: 0; /* behind everything */
+}
+
+.silabus-container {
+  position: relative;
+  z-index: 1; /* keep content above background */
+  width: 1200px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  /* remove height and overflow */
+}
+
+.silabus .section-title h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #e91e63;
+  margin: 0 0 10px 0;
+}
+
+.silabus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.silabus-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.silabus-item img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center; /* center the photo inside its frame */
+  margin: 0 auto 20px; /* center the image block */
+  border-radius: 6px;
+}
+
+.silabus-item h3 {
+  font-size: 20px;
+  color: #e91e63;
+  margin-bottom: 15px;
+}
+
+.silabus-item p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.btn-red {
+  display: inline-block;
+  background: #e91e63;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-red:hover {
+  background: #c2185b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .silabus-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   JADWAL KURSUS 
+================================*/
+.JK {
+  background: #bbdefb; /* light blue */
+  padding: 60px 0;
+}
+
+.JK-title h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Short description above the button */
+.JK-desc {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Button row — "Lihat Jadwal" sits level with the Angkatan dropdown (same top row), while "Lihat Jadwal Angkatan" stays stacked below the dropdown */
+.JK-action {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* top-aligns "Lihat Jadwal" with "Silahkan Pilih Angkatan" */
+  flex-wrap: wrap; /* stacks on narrow screens */
+  gap: 15px;
+}
+
+/* Lock the buttons to the same height as the dropdown so the row lines up exactly */
+.JK-action .btn-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+}
+
+/* Angkatan dropdown styled to match the .btn-red buttons; "Lihat Jadwal Angkatan" stays stacked below — both share the same width */
+.JK-select-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* dropdown & button share the same width */
+  gap: 10px;
+}
+
+/* Same padding, font size, radius & height as .btn-red so the dropdown matches "Lihat Jadwal" */
+.JK-select-group select {
+  width: 100%;
+  height: 46px; /* same height as the buttons in this row */
+  padding: 12px 24px; /* same as .btn-red */
+  border: 1px solid transparent; /* borderless look, same as .btn-red */
+  border-radius: 6px; /* same as .btn-red */
+  background: #fff;
+  color: #333;
+  font-size: 16px; /* same text size as .btn-red */
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Keep the button text centered once it stretches to the dropdown's width */
+.JK-select-group .btn-red {
+  text-align: center;
+}
+
+.JK-select-group select:focus {
+  border-color: #00f7ff;
+  box-shadow: 0 0 0 3px rgba(0, 247, 255, 0.2);
+}
+
+.JK-select-group select option {
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* ===============================
+   LOKASI KURSUS
+================================*/
+.lokasi {
+  background: #fce4ec; /* soft pink — matches the #e91e63 accent used across the site */
+  padding: 80px 0;
+}
+
+.lokasi-container {
+  width: 1200px;
+  max-width: 90%;
+  margin: auto;
+}
+
+/* Short description above the two location cards */
+.lokasi-desc {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Bold note text above the "Disini" button (scoped so the other
+   .lokasi-desc usage in the Lokasi section stays regular weight) */
+.lokasi-desc .kegiatan-note-text {
+  font-weight: 700;
+}
+
+/* "Disini" button centered on its own line under the note text */
+.kegiatan-note-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 22px;
+  font-size: 14px;
+}
+
+/* Two location cards side by side — Multimedia left, Citra right */
+.lokasi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.lokasi-item {
+  background: #fff; /* white cards stand out on the pink background */
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lokasi-item h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #e91e63;
+  margin-bottom: 12px;
+}
+
+.lokasi-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Space between the room text and its "Lihat gambar" button */
+.lokasi-item .btn-red {
+  margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .lokasi-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+table {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+thead td,
+thead th {
+  background: #f0f0f0; /* light background for time slots */
+  font-weight: 600;
+  text-align: center;
+}
+
+thead th {
+  padding: 8px; /* reduce header height */
+  font-size: 13px;
+}
+
+td,
+th {
+  border: 2px solid #999;
+  padding: 5px;
+  color: black;
+  text-align: center; /* centers horizontally */
+  vertical-align: middle; /* centers vertically */
+}
+
+.active {
+  background: #fff;
+  color: #111;
+}
+
+.empty {
+  background: #ccc;
+  color: #666;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+  background: #f0f0f0; /* light blue */
+  color: #111; /* dark text */
+}
+
+/* =========================================
+   PORTFOLIO
+========================================= */
+
+.portfolio {
+  background: #fff;
+  padding: 90px 0 100px;
+}
+
+.portfolio-container {
+  width: 1200px;
+  max-width: 90%;
+  margin: auto;
+}
+
+/* Section title */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title p {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 8px;
+  color: #111;
+}
+
+.section-title span {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #111;
+  margin: 25px auto 0;
+}
+
+/* =========================================
+   PORTFOLIO GRID
+========================================= */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Portfolio card */
+
+.portfolio-item {
+  text-align: center;
+}
+
+/* Image */
+
+.portfolio-image {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  background: #eee;
+  border-radius: 3px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Image hover */
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.05);
+}
+
+/* Portfolio title */
+
+.portfolio-item h3 {
+  margin-top: 20px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: #222;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #8597e6, #764ba2);
+  color: #fff;
+  position: relative;
+}
+
+/* subtle glow */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(70, 120, 150, 0.15);
+  filter: blur(100px);
+  border-radius: 50%;
+}
+
+/* Hero content */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 900px;
+  max-width: 90%;
+}
+
+/* Small title */
+
+.hero-small-title {
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: #fff;
+  margin-bottom: 45px;
+}
+
+/* Main title */
+
+.hero h1 {
+  font-size: clamp(30px, 7vw, 30px);
+  font-weight: 300;
+  letter-spacing: 12px;
+  margin-bottom: 30px;
+  line-height: 1.1;
+}
+
+/* Description */
+
+.hero-description {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: 0 auto 35px;
+}
+
+/* Hero button */
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 35px;
+  border: 1px solid #888;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  background: #111;
+
+  color: #fff;
+
+  padding: 40px 0;
+}
+
+.footer-container {
+  width: 1200px;
+  max-width: 90%;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+/* Footer logo */
+
+.footer-logo {
+  font-size: 20px;
+
+  letter-spacing: 5px;
+
+  margin-bottom: 20px;
+}
+
+/* Copyright */
+
+.footer p {
+  color: #777;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 20px;
+}
+
+/* Social */
+
+.socials {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 30px;
+}
+
+.socials a {
+  color: #999;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #fff;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  /* Hamburger button takes over on phones */
+  .navbar-container {
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Nav links become a dropdown panel under the fixed bar */
+  .navbar nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(16, 15, 15, 0.97);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .navbar.nav-open nav {
+    max-height: 340px; /* fits the four menu links */
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0 16px;
+  }
+
+  .navbar nav a {
+    display: block;
+    padding: 14px 8%;
+    text-align: left;
+  }
+
+  /* An open menu keeps the bar on screen even while the scroll-hide logic runs */
+  .navbar.nav-open,
+  .navbar.nav-open.hidden {
+    transform: translateY(0);
+  }
+
+  /* Hamburger animates into an X while the menu is open */
+  .navbar.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .hero h1 {
+    letter-spacing: 10px;
+  }
+  .cta-container {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .portfolio-image {
+    height: 500px;
+  }
+}
+
+/* =========================================
+   MOBILE / RESPONSIVE FIXES (phones)
+   Rules that only kick in on small screens
+   so every page fits the phone viewport.
+========================================= */
+@media (max-width: 900px) {
+  /* Intro section: add side padding + shrink the square logo */
+  .intro-container {
+    padding: 40px 5%;
+  }
+
+  .image-thumbnail img {
+    max-width: 70vw;
+    max-height: 70vw;
+  }
+
+  /* Course cards stack vertically on phones */
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  /* Equipment spec rows stack like .profil-list rows on phones */
+  .fas-tr {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+  }
+
+  .fas-colon {
+    display: none;
+  }
+
+  /* Wide content never forces a horizontal page scroll */
+  .profil-container,
+  .lokasi-container,
+  .footer-container,
+  .silabus-container {
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    height: 60px;
+  }
+  .logo {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+  .hero {
+    min-height: 500px;
+  }
+  .hero-small-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: 6px;
+  }
+  .hero-description {
+    font-size: 12px;
+  }
+  .portfolio {
+    padding: 60px 0;
+  }
+  .portfolio-image {
+    height: 400px;
+  }
+}
+
+
+/* =========================================
+   FASILITAS & PERALATAN (title-card section)
+========================================= */
+.profil-lab.fasilitas-lab {
+  background: linear-gradient(135deg, #ffe3ef 0%, #ffc9de 50%, #ffa8c8 100%);
+}

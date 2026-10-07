@@ -1,0 +1,106 @@
+/* =========================================
+   KURSUS INTENSIF & REGULER - standalone page
+   LP.css provides the navbar, footer, section
+   frame, .btn-red and .kegiatan-info rows;
+   this file only adds the comparison layout
+   for the two course formats.
+========================================= */
+
+.kursus-page {
+  min-height: 100vh;
+  padding-top: 120px; /* clears the fixed 60px navbar */
+}
+
+@media (max-width: 900px) {
+  .kursus-page {
+    padding-top: 100px;
+  }
+}
+
+/* Centered intro under the heading */
+.kursus-intro {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Two comparison cards side by side */
+.kursus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.kursus-card {
+  background: #dfddd1; /* same beige as .kegiatan-card */
+  border-radius: 14px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Format label pill (Reguler / Intensif) */
+.kursus-type {
+  display: inline-block;
+  background: #e91e63;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+.kursus-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+  margin: 14px 0 10px;
+}
+
+.kursus-desc {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* Workshop info strip below the two cards */
+.kursus-note {
+  background: #fff;
+  border-left: 5px solid #e91e63;
+  border-radius: 8px;
+  padding: 22px 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.kursus-note h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e91e63;
+  margin-bottom: 8px;
+}
+
+.kursus-note p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .kursus-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto 40px;
+  }
+
+  .kursus-card {
+    padding: 26px 24px;
+  }
+}

@@ -1,0 +1,56 @@
+/* =========================================
+   JADWAL VIEWER
+========================================= */
+.jadwal-viewer {
+  min-height: 100vh;
+  padding: 120px 5% 80px; /* top padding clears the fixed navbar */
+  background: linear-gradient(135deg, #e89165, #4273ed);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.jadwal-card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 40px;
+  width: 1400px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.jadwal-card h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 30px;
+}
+
+/* Horizontal scroll wrapper so the wide schedule table stays readable on small screens */
+.jadwal-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.jadwal-card table {
+  min-width: 1100px; /* forces the wrapper to scroll instead of squishing cells */
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 500px) {
+  .jadwal-viewer {
+    padding: 100px 4% 60px;
+  }
+
+  .jadwal-card {
+    padding: 20px;
+  }
+
+  .jadwal-card h1 {
+    font-size: 20px;
+  }
+}

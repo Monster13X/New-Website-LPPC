@@ -1,0 +1,224 @@
+/* =========================================
+   SYARAT & KETENTUAN PENDAFTARAN - standalone page
+   LP.css provides the navbar, footer and section
+   styles; this file only adds the page frame plus
+   the warning-banner, terms-card and consent
+   styles for the daftar interstitial.
+========================================= */
+
+.syarat-page {
+  min-height: 100vh;
+  padding-top: 120px; /* clears the fixed 60px navbar */
+  padding-bottom: 80px;
+}
+
+/* ---- Warning banner above the terms ---- */
+.syarat-warning {
+  background: #fff3e0;
+  border: 2px solid #ef6c00;
+  border-radius: 8px;
+  padding: 20px 26px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.syarat-warning h3 {
+  color: #e65100;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.syarat-warning p {
+  color: #5d4037;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---- White card holding the numbered terms ---- */
+.syarat-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px 40px;
+  margin-top: 30px;
+}
+
+.syarat-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #111; /* body text is white in LP.css — must override on the white card */
+}
+
+.syarat-list {
+  margin: 0;
+  padding-left: 22px;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.syarat-list li {
+  margin-bottom: 6px;
+}
+
+.syarat-list li::marker {
+  color: #e91e63;
+  font-weight: 700;
+}
+
+/* ---- Consent checkbox row ---- */
+.syarat-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  user-select: none;
+}
+
+.syarat-check input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #e91e63;
+  cursor: pointer;
+}
+
+/* ---- CTA row: continue (locked) + back ---- */
+.syarat-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+/* Continue stays gray + unclickable until the checkbox is ticked */
+.syarat-continue.is-disabled {
+  background: #bdbdbd;
+  pointer-events: none;
+}
+
+.syarat-continue.is-disabled:hover {
+  background: #bdbdbd;
+}
+
+/* Secondary outline style for the back button */
+.syarat-back {
+  background: #fff;
+  color: #e91e63;
+  border: 2px solid #e91e63;
+}
+
+.syarat-back:hover {
+  background: #e91e63;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .syarat-page {
+    padding-top: 100px;
+  }
+
+  .syarat-card {
+    padding: 24px 20px;
+  }
+}
+
+/* =============================================
+   RE-CONFIRMATION POPUP
+   Opened when the visitor clicks "Lanjut ke
+   Pendaftaran". Shows the Syarat & Ketentuan
+   again; the visitor must confirm ("Ya, Saya
+   Mengerti") before the registration form
+   can be opened.
+============================================= */
+
+.syarat-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000; /* above the fixed navbar (z-index 90) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* The hidden attribute must win over .syarat-modal's display:flex */
+.syarat-modal[hidden] {
+  display: none;
+}
+
+.syarat-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.syarat-modal-card {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto; /* the terms list is long — scroll inside the popup */
+  padding: 28px 32px;
+}
+
+.syarat-modal-card h3 {
+  color: #e65100; /* same warning orange as the PERHATIAN banner */
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.syarat-modal-card > p {
+  color: #5d4037;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 18px;
+}
+
+/* Cloned warning banner + terms card inside the popup:
+   strip the page-level spacing so they stack tightly */
+.syarat-modal-terms .syarat-warning {
+  margin-top: 0;
+}
+
+.syarat-modal-terms .syarat-card {
+  margin-top: 18px;
+  box-shadow: none;
+  border: 1px solid #eee;
+}
+
+/* Reset native <button> chrome so the popup buttons look like the
+   page's .btn-red links */
+.syarat-modal .syarat-cta button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .syarat-modal-card {
+    padding: 22px 18px;
+    max-height: 92vh;
+  }
+}

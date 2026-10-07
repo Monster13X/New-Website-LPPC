@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Syarat &amp; Ketentuan Pendaftaran - LEPTEK</title>
+
+    <!-- Shared navbar, footer and section styles from the landing page -->
+    <link rel="stylesheet" href="LP.css?v=23" />
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="Syarat.css?v=2" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="logo">LEPTEK</div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="../index.php#home">HOME</a></li>
+            <!-- <li><a href="../index.php#tentang-kami">TENTANG KAMI</a></li> -->
+            <!-- <li><a href="../index.php#program">PROGRAM</a></li> -->
+            <li><a href="Kontak_Person.html">KONTAK</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= SYARAT & KETENTUAN PENDAFTARAN =================
+         Warning page shown before registration: the DAFTAR button on the
+         landing page opens this page first, and the registration form is
+         only reachable after the visitor accepts the terms below. -->
+    <section class="profil-lab syarat-page">
+      <div class="profil-container">
+        <div class="section-title">
+          <h2>Syarat &amp; Ketentuan Pendaftaran</h2>
+          <span></span>
+        </div>
+
+        <div class="syarat-warning">
+          <h3>&#9888; PERHATIAN</h3>
+          <p>
+            Sebelum melanjutkan pendaftaran kursus, harap membaca Syarat &amp;
+            Ketentuan berikut dengan seksama. Formulir pendaftaran hanya dapat
+            diakses setelah Anda menyetujui ketentuan di bawah ini.
+          </p>
+        </div>
+
+        <div class="syarat-card">
+          <h3>Syarat &amp; Ketentuan Pendaftaran Kursus LEPTEK</h3>
+          <ol class="syarat-list">
+            <li>
+              Data diri yang diisi pada formulir pendaftaran (nama, NPM, kelas,
+              email, dan nomor WhatsApp) wajib benar dan sesuai identitas.
+            </li>
+            <li>
+              Email yang didaftarkan harus aktif serta valid, karena dipakai
+              untuk keperluan administrasi pendaftaran.
+            </li>
+            <li>
+              Nomor WhatsApp harus aktif (10 &ndash; 13 digit) dan dapat
+              dihubungi panitia untuk informasi lebih lanjut.
+            </li>
+            <li>
+              Peserta wajib memilih kursus dan jurusan yang tersedia pada
+              formulir pendaftaran.
+            </li>
+            <li>
+              Pendaftaran yang telah dikirim tidak dapat diubah kembali, maka
+              isi data dengan sebenar&ndash;benarnya.
+            </li>
+            <li>
+              Peserta wajib menghadiri kegiatan kursus sesuai jadwal yang
+              berlaku di Laboratorium LEPTEK.
+            </li>
+            <li>
+              Peserta yang terdaftar diwajibkan mengikuti seluruh rangkaian
+              kegiatan hingga selesai.
+            </li>
+            <li>
+              Data pendaftar digunakan hanya untuk keperluan administrasi
+              pendaftaran kursus LEPTEK.
+            </li>
+            <li>
+              Peserta hanya dapat memilih satu kursus saja dari pilihan kursus
+              yang tersedia dalam 8 semester perkuliahan. Contohnya : A memilih
+              kursus Multimedia maka otomatis, A mengikuti kursus multimedia
+              selama 8 semester dan tidak dapat berpindah ke kursus lain seperti
+              Lab Pengembangan Pengolahan Citra maupun lepkom. Sehingga tentukan
+              dengan tepat pilihan kursus yang diinginkan.
+            </li>
+          </ol>
+        </div>
+
+        <label class="syarat-check" for="syarat-setuju">
+          <input type="checkbox" id="syarat-setuju" />
+          <span
+            >Saya telah membaca dan menyetujui Syarat &amp; Ketentuan di
+            atas.</span
+          >
+        </label>
+
+        <div class="syarat-cta">
+          <a
+            href="../pendaftar/peserta_daftar.php"
+            class="btn-red syarat-continue is-disabled"
+            id="syarat-lanjut"
+            aria-disabled="true"
+            >Lanjut ke Pendaftaran</a
+          >
+          <a href="../index.php" class="btn-red syarat-back">Kembali</a>
+        </div>
+        <!-- ===== Re-confirmation popup =====
+             Shown when the visitor ticks the checkbox and clicks
+             "Lanjut ke Pendaftaran", so they must read the Syarat &
+             Ketentuan (shown again below) before the registration form
+             opens. -->
+        <div
+          class="syarat-modal"
+          id="syarat-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="syarat-modal-title"
+          hidden
+        >
+          <div
+            class="syarat-modal-backdrop"
+            id="syarat-modal-backdrop"
+          ></div>
+          <div class="syarat-modal-card">
+            <h3 id="syarat-modal-title">
+              &#9888; KONFIRMASI PENDAFTARAN
+            </h3>
+            <p>
+              Harap membaca kembali Syarat &amp; Ketentuan berikut dengan
+              seksama. Formulir pendaftaran hanya dapat diakses setelah
+              Anda menyetujui ketentuan di bawah ini.
+            </p>
+
+            <!-- Syarat-card content is cloned here by the script so the
+                 popup always shows exactly the same terms as the page. -->
+            <div class="syarat-modal-terms" id="syarat-modal-terms"></div>
+
+            <div class="syarat-cta">
+              <button type="button" class="btn-red" id="syarat-modal-confirm">
+                Ya, Saya Mengerti
+              </button>
+              <button type="button" class="btn-red syarat-back" id="syarat-modal-cancel">
+                Batal
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= FOOTER (same as Materi.html) ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">LEPTEK</div>
+
+        <p>&copy; 2026 LEPTEK</p>
+
+        <div class="socials">
+          <a href="#">Instagram</a>
+          <!--a href="#">Twitter</a>
+          <a href="#">Facebook</a-->
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= NAVBAR SCROLL BEHAVIOR (same as Materi.html) ================= -->
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const NAVBAR_HEIGHT = 60; // hide only after scrolling past the bar itself
+      let lastScrollY = window.scrollY;
+      let hoveringNavbar = false;
+      let clickCooldown = 0; // timestamp until which auto-hide is suppressed
+      let firstScrollAfterLoad = true; // the browser may restore a saved scroll position
+
+      function showNavbar() {
+        navbar.classList.remove("hidden");
+      }
+
+      // Landing on the page → the navbar starts visible
+      showNavbar();
+
+      // Returning to the page via back/forward (restored from cache) → show it again
+      window.addEventListener("pageshow", () => {
+        showNavbar();
+        lastScrollY = window.scrollY;
+      });
+
+      // Scrolling down → hide the bar. Scrolling up (or back near the top) → show it.
+      window.addEventListener("scroll", () => {
+        const currentY = window.scrollY;
+
+        // First scroll event after load: only sync the position. The browser may
+        // have jumped to a restored scroll spot — that must not hide the bar.
+        if (firstScrollAfterLoad) {
+          firstScrollAfterLoad = false;
+          lastScrollY = currentY;
+          return;
+        }
+
+        if (currentY < lastScrollY || currentY <= NAVBAR_HEIGHT) {
+          showNavbar();
+        } else if (
+          currentY > lastScrollY &&
+          !hoveringNavbar &&
+          Date.now() > clickCooldown
+        ) {
+          navbar.classList.add("hidden"); // actively scrolling down → hide the bar
+        }
+
+        lastScrollY = currentY;
+      });
+
+      // Keep the navbar visible while the cursor is over it,
+      // so users can still click the links
+      navbar.addEventListener("mouseenter", () => {
+        hoveringNavbar = true;
+        showNavbar();
+      });
+      navbar.addEventListener("mouseleave", () => {
+        hoveringNavbar = false;
+      });
+
+      // Clicking a link (jumping to a section or another page)
+      // → show the navbar and keep it visible during the jump
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          showNavbar();
+          clickCooldown = Date.now() + 1000;
+        });
+      });
+
+      // Clicking anywhere on the page (outside the navbar and interactive
+      // controls) toggles the bar manually: hidden → shown, shown → hidden.
+      document.addEventListener("click", (event) => {
+        // The navbar never toggles itself away, and links/buttons/inputs
+        // already handle the bar (they show it for the jump/navigation).
+        if (
+          navbar.contains(event.target) ||
+          event.target.closest("a, button, select, input, textarea, label")
+        ) {
+          return;
+        }
+
+        navbar.classList.toggle("hidden");
+        clickCooldown = Date.now() + 600; // don't let the next scroll tick undo the toggle
+      });
+
+      // ===== MOBILE HAMBURGER MENU =====
+      const navToggle = document.querySelector(".nav-toggle");
+      if (navToggle) {
+        navToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = navbar.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        // Close the menu when a nav link is tapped
+        document.querySelectorAll(".navbar nav a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navbar.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+
+        // Close the menu when tapping outside the navbar
+        document.addEventListener("click", (e) => {
+          if (
+            navbar.classList.contains("nav-open") &&
+            !navbar.contains(e.target)
+          ) {
+            navbar.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+    </script>
+
+    <!-- ================= CONSENT GATE =================
+         The "Lanjut ke Pendaftaran" button stays disabled (gray + inert)
+         until the visitor ticks the agreement checkbox. Clicking it then
+         opens a confirmation popup that shows the Syarat & Ketentuan
+         again; only after confirming inside the popup does the visitor
+         reach the registration form. -->
+    <script>
+      const syaratSetuju = document.getElementById("syarat-setuju");
+      const syaratLanjut = document.getElementById("syarat-lanjut");
+
+      // ---- Re-confirmation popup elements ----
+      const syaratModal = document.getElementById("syarat-modal");
+      const syaratModalTerms = document.getElementById("syarat-modal-terms");
+      const syaratModalConfirm = document.getElementById("syarat-modal-confirm");
+      const syaratModalCancel = document.getElementById("syarat-modal-cancel");
+      const syaratModalBackdrop = document.getElementById("syarat-modal-backdrop");
+
+      syaratSetuju.addEventListener("change", () => {
+        const disetujui = syaratSetuju.checked;
+        syaratLanjut.classList.toggle("is-disabled", !disetujui);
+        syaratLanjut.setAttribute(
+          "aria-disabled",
+          disetujui ? "false" : "true",
+        );
+      });
+
+      // ---- Popup helpers ----
+      function openSyaratModal() {
+        // Clone the page's warning banner + terms card into the popup so
+        // the visitor must read the exact same Syarat & Ketentuan again.
+        syaratModalTerms.replaceChildren(
+          document.querySelector(".syarat-warning").cloneNode(true),
+          document.querySelector(".syarat-card").cloneNode(true),
+        );
+
+        syaratModal.hidden = false;
+        document.body.style.overflow = "hidden"; // lock the page behind the popup
+        syaratModalConfirm.focus();
+      }
+
+      function closeSyaratModal() {
+        syaratModal.hidden = true;
+        document.body.style.overflow = ""; // release the page scroll lock
+        syaratLanjut.focus(); // return focus to the continue button
+      }
+
+      // ---- Popup wiring ----
+      syaratModalCancel.addEventListener("click", closeSyaratModal);
+      syaratModalBackdrop.addEventListener("click", closeSyaratModal);
+
+      // Keep popup clicks from reaching the page script that toggles the
+      // navbar when clicking outside interactive elements.
+      syaratModal.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+
+      // Escape closes the popup without continuing to the form
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !syaratModal.hidden) {
+          closeSyaratModal();
+        }
+      });
+
+      // Confirm → record the acceptance in the PHP session before opening
+      // the form. peserta_daftar.php redirects back here when the session
+      // flag is missing.
+      syaratModalConfirm.addEventListener("click", () => {
+        closeSyaratModal();
+        fetch("../pendaftar/setuju.php", { method: "POST" })
+          .catch(() => {})
+          .finally(() => {
+            window.location.href = syaratLanjut.getAttribute("href");
+          });
+      });
+
+      // Extra guard: even if the classes are tampered with, block navigation
+      // while the terms have not been accepted — and always route the click
+      // through the popup so the terms are shown a second time.
+      syaratLanjut.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        if (!syaratSetuju.checked) {
+          syaratSetuju.focus();
+          return;
+        }
+
+        openSyaratModal();
+      });
+    </script>
+  </body>
+</html>
