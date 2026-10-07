@@ -1,0 +1,370 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000000;
+    color: #ffffff;
+}
+
+.menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-button {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1001;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.menu-button:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.menu-button span {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.menu-button span::before,
+.menu-button span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.menu-button span::before {
+    top: -6px;
+}
+
+.menu-button span::after {
+    top: 6px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: #222;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    transform: translateX(0);
+    transition: transform 0.25s ease;
+    z-index: 1000;
+}
+
+.menu-toggle:not(:checked) ~ .navbar {
+    transform: translateX(-236px);
+}
+
+.page-content {
+    margin-left: 240px;
+    transition: margin-left 0.25s ease;
+    padding-top: 60px;
+    padding-left: 16px;
+    padding-right: 20px;
+}
+
+.menu-toggle:not(:checked) ~ .page-content {
+    margin-left: 0;
+}
+
+.navbar h2 {
+    margin-top: 50px;
+    margin-bottom: 24px;
+    font-size: 20px;
+}
+
+.home-header {
+    text-align: center;
+}
+
+.home-header button {
+    display: block;
+    width: 220px;
+    margin: 20px auto;
+    padding: 12px 0;
+}
+
+.container form button {
+    width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE (mobile / tablet)
+   Admin & pendaftaran pages fit phone screens.
+ ========================================== */
+@media (max-width: 768px) {
+    /* Sidebar starts hidden on phones — tap the hamburger to open it */
+    .menu-toggle:checked ~ .navbar {
+        transform: translateX(-236px);
+    }
+
+    .page-content {
+        margin-left: 0;
+        padding: 76px 16px 24px;
+    }
+
+    .container {
+        padding: 20px 16px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .table-section {
+        overflow-x: auto;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    .home-header button {
+        width: 100%;
+    }
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li + li {
+    margin-top: 14px;
+}
+
+/* DIBERSIHKAN: Mengubah .navbar a menjadi .navbar ul a agar tidak mengganggu link lain */
+.navbar ul a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.navbar ul a.active,
+.navbar ul a:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dashboard-actions .btn-cetak {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 16px !important;
+    background-color: #1a1a1a !important; /* Warna sedikit lebih terang dari background utama */
+    color: #ffffff !important;
+    border: 1px solid #333333 !important; /* Border halus */
+    border-radius: 20px !important; /* Dibuat melengkung/kapsul sama seperti filter */
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    height: 32px !important; /* Ukuran sejajar dengan filter */
+    box-sizing: border-box !important;
+}
+
+/* Hover Effect Tombol Cetak */
+.dashboard-actions .btn-cetak:hover {
+    background-color: #252525 !important;
+    border-color: #555555 !important; /* Border menyala halus saat di-hover */
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+/* ==========================================
+   STYLE UNTUK FILTER SWITCH / TAB KAPSUL
+   ========================================== */
+.dashboard-actions .filter-switch {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f0f2f5; /* Background kapsul terang */
+    padding: 3px;
+    border-radius: 20px;
+    gap: 2px;
+}
+
+.dashboard-actions .filter-switch a.filter-btn {
+    padding: 6px 14px;
+    color: #65676b !important; /* Warna teks default */
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    line-height: 1;
+}
+
+.dashboard-actions .filter-switch a.filter-btn:hover {
+    color: #050505 !important;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.dashboard-actions .filter-switch a.filter-btn.active {
+    background-color: #ffffff;
+    color: #050505 !important;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+    padding: 40px;
+    max-width: 620px;
+}
+
+.dashboard-header {
+    top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.dashboard-label {
+    margin: 0 0 8px;
+    color: #aaa;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.dashboard-actions button {
+    width: auto;
+    padding: 10px 18px;
+}
+
+.dashboard-cards {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    margin-bottom: 24px;
+}
+
+.card {
+    background: #161616;
+    border: 1px solid #333;
+    border-radius: 18px;
+    padding: 24px;
+}
+
+.card p {
+    margin: 0 0 12px;
+    color: #aaa;
+}
+
+.card strong {
+    display: block;
+    font-size: 2rem;
+}
+
+.table-section {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 18px;
+    padding: 22px;
+}
+
+.table-header h2 {
+    margin: 0 0 8px;
+    font-size: 1.3rem;
+}
+
+.table-header p {
+    margin: 0;
+    color: #bbb;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid #222;
+}
+
+th {
+    color: #bbb;
+    font-weight: 600;
+}
+
+.empty-row {
+    text-align: center;
+    color: #999;
+    padding: 32px 0;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+form input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 50%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}

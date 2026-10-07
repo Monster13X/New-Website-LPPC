@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <input type="checkbox" id="menuToggle" class="menu-toggle" checked>
+    <label for="menuToggle" class="menu-button"><span></span></label>
+
+    <aside class="navbar">
+        <h2>Admin</h2>
+        <ul>
+<!--             <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="#">Pendaftaran</a></li>
+            <li><a href="#">Pembayaran</a></li>
+            <li><a href="#">Pengaturan</a></li>
+        </ul> -->
+    </aside>
+
+    <div class="page-content">
+        <main class="dashboard-page">
+            <header class="dashboard-header">
+                <div>
+                    <p class="dashboard-label">Dashboard Admin</p>
+                    <h1>Ringkasan Data</h1>
+                </div>
+<!--                 <div class="dashboard-actions">
+                    <button type="button">Segarkan</button>
+                </div> -->
+            </header>
+
+            <section class="dashboard-cards">
+                <article class="card empty-card">
+                    <p>Data Saat Ini</p>
+                    <strong>0</strong>
+                </article>
+<!--                 <article class="card empty-card">
+                    <p>Pendaftaran</p>
+                    <strong>0</strong>
+                </article>
+                <article class="card empty-card">
+                    <p>Pembayaran</p>
+                    <strong>0</strong>
+                </article> -->
+            </section>
+
+            <section class="table-section">
+                <div class="table-header">
+                    <h2>Daftar Pendaftar</h2>
+                    <p>Belum ada data yang tersedia. Tambahkan pendaftar untuk melihat tabel.</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NPM</th>
+                            <th>Kelas</th>
+                            <th>Email</th>
+                            <th>No.HP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5" class="empty-row"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
